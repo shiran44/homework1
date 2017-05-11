@@ -5,6 +5,11 @@ const   express = require('express'),
         port    = process.env.PORT || 3000,
         buisness=require('./business_management');
 
+app.get('/',
+    (req,res)=>{
+        res.sendFile('index.html');
+    });
+
 app.get('/getAllNames',
    (req,res)=>{
       res.status(200).json(buisness.allCompanies());
@@ -17,7 +22,7 @@ app.post('/getCompany/',
 
 app.get ('/getCompanyByCity&Devices/:city/:devices' , 
     (req,res) =>{ 
-      res.status(200).json(buisness.getCompByAmountAndDev(req.params.city,req.params.devices));
+      res.status(200).json(buisness.getCompByCityAndDev(req.params.city,req.params.devices));
  });
   
 app.all('*',
@@ -25,7 +30,6 @@ app.all('*',
         console.log("alllll");
         res.json({data});
     });   
-
 
 
 

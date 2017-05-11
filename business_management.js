@@ -26,7 +26,7 @@ module.exports={
     if (!foundComp) return ({"error":"no company for this profile"});
     },
 
-    getCompByAmountAndDev(city,devices){
+    getCompByCityAndDev(city,devices){
     let found = false;
         for(let i in data.companies){
             var company = data.companies[i];
