@@ -1,6 +1,7 @@
 var data   = require('./data/companiesData.json');
-var names=[];
-exports.array=names;
+var names1=[],
+    names2=[];
+exports.array=names1,names2;
 
 module.exports={
 
@@ -8,9 +9,9 @@ module.exports={
         for(let i in data.companies){
             var company = data.companies[i];
             console.log(company.name);
-            names.push(company.name);
+            names1.push(company.name);
         }
-        return ({"names of all companies":names});
+        return ({"names of all companies":names1});
     },
 
     getCompByProfile(Profile_id){
@@ -37,13 +38,13 @@ module.exports={
                     if(Branch.city == city){
                         console.log(Branch.city);
                         found = true;
-                        names.push(company.name);
+                        names2.push(company.name);
                     }
                 }
             }
 
         }
-    return ({"The company/ies with the amount of devices and this city":names});
+    return ({"The company/ies with the amount of devices and this city":names2});
     if (!found) return ({"error":"no company for this data"});
     } 
 };
