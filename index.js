@@ -5,10 +5,13 @@ const   express = require('express'),
         port    = process.env.PORT || 3000,
         buisness=require('./business_management');
 
-app.get('/',
-    (req,res)=>{
-        res.sendFile('./index.html');
-    });
+app.get('/', (req, res) => {
+   res.sendFile(`${__dirname}/index.html`);
+ });
+
+app.get('/includes/style.css', (req, res) => {
+   res.sendFile(`${__dirname}/includes/style.css`);
+});
 
 app.get('/getAllNames',
    (req,res)=>{
